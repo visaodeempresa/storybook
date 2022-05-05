@@ -50,8 +50,7 @@ const Wrapper = styled.div<WrapperProps>(
     bordered
       ? {
           border: `1px solid ${theme.appBorderColor}`,
-          // TODO: This should be `theme.appBorderRadius`
-          borderRadius: theme.borderRadius,
+          borderRadius: theme.appBorderRadius,
           background: theme.background.content,
         }
       : {}
