@@ -7517,11 +7517,11 @@ __metadata:
     overlayscrollbars: ^1.13.1
     polished: ^4.2.2
     prettier: ">=2.2.1 <=2.3.0"
+    prism-react-renderer: ^1.3.1
     prop-types: ^15.7.2
     qs: ^6.10.0
     react-colorful: ^5.1.2
     react-popper-tooltip: ^3.1.1
-    react-syntax-highlighter: ^15.4.5
     react-textarea-autosize: ^8.3.0
     regenerator-runtime: ^0.13.7
     ts-dedent: ^2.0.0
@@ -36949,6 +36949,15 @@ __metadata:
   version: 0.6.1
   resolution: "printf@npm:0.6.1"
   checksum: 32177cea92d6b23c09df6cc3cf7f5f2e30c0658424b5a2d66c8376cef34f2489cb01e8af174e6f95ddddfc28dd1c6929e6787a7cbfe7de0a3613bedb6e7887c0
+  languageName: node
+  linkType: hard
+
+"prism-react-renderer@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "prism-react-renderer@npm:1.3.1"
+  peerDependencies:
+    react: ">=0.14.9"
+  checksum: 95c53e0702bc2a2ca902c96dd586eaad1cef06e451a1523b19f70b278534f31a6a2cbf409dc4c03bbf16bfbc0d200d675586cf2f229d3943b47aedb7eca21f27
   languageName: node
   linkType: hard
 

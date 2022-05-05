@@ -1,5 +1,6 @@
 import React, { ComponentProps, FunctionComponent } from 'react';
 import { styled, ThemeProvider, convert, themes, ignoreSsrWarning } from '@storybook/theming';
+import { SyntaxHighlighterProps } from '../syntaxhighlighter/syntaxhighlighter-types';
 import { EmptyBlock } from './EmptyBlock';
 
 import { SyntaxHighlighter } from '../syntaxhighlighter/lazy-syntaxhighlighter';
@@ -28,9 +29,9 @@ interface SourceErrorProps {
   error?: SourceError;
 }
 
-interface SourceCodeProps {
-  language?: string;
-  code?: string;
+export interface SourceCodeProps {
+  language: SyntaxHighlighterProps['language'];
+  code: string;
   format?: ComponentProps<typeof SyntaxHighlighter>['format'];
   dark?: boolean;
 }
@@ -66,9 +67,7 @@ const SourceSkeleton = () => (
   </SourceSkeletonWrapper>
 );
 
-// FIXME: Using | causes a typescript error, so stubbing it with & for now
-// and making `error` optional
-export type SourceProps = SourceErrorProps & SourceCodeProps;
+export type SourceProps = SourceErrorProps | SourceCodeProps;
 
 /**
  * Syntax-highlighted source code for a component (or anything!)

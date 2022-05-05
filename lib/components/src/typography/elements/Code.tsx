@@ -1,5 +1,6 @@
 import { styled } from '@storybook/theming';
 import React, { Children, ComponentProps } from 'react';
+import type { SyntaxHighlighterProps } from '../../syntaxhighlighter/syntaxhighlighter-types';
 import { StyledSyntaxHighlighter } from '../../blocks/Source';
 import { isReactChildString } from '../lib/isReactChildString';
 import { codeCommon } from '../lib/common';
@@ -26,7 +27,10 @@ export const Code = ({
   children,
   ...props
 }: ComponentProps<typeof DefaultCodeBlock>) => {
-  const language = (className || '').match(/lang-(\S+)/);
+  const language = (className || '').match(/lang-(\S+)/) as [
+    unknown,
+    SyntaxHighlighterProps['language']
+  ];
   const childrenArray = Children.toArray(children);
   const isInlineCode = !childrenArray
     .filter(isReactChildString)
@@ -41,13 +45,7 @@ export const Code = ({
   }
 
   return (
-    <StyledSyntaxHighlighter
-      bordered
-      copyable
-      language={language?.[1] ?? 'plaintext'}
-      format={false}
-      {...props}
-    >
+    <StyledSyntaxHighlighter bordered copyable language={language?.[1]} format={false} {...props}>
       {children}
     </StyledSyntaxHighlighter>
   );

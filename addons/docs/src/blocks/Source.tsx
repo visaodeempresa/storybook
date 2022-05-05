@@ -1,5 +1,6 @@
 import React, { ComponentProps, FC, useContext } from 'react';
 import { Source as PureSource, SourceError } from '@storybook/components';
+import type { SourceCodeProps } from '@storybook/components';
 import type { StoryId } from '@storybook/api';
 import type { Story } from '@storybook/store';
 
@@ -18,9 +19,9 @@ export enum SourceState {
 }
 
 interface CommonProps {
-  language?: string;
+  language?: SourceCodeProps['language'];
   dark?: boolean;
-  format?: PureSourceProps['format'];
+  format?: SourceCodeProps['format'];
   code?: string;
 }
 
@@ -151,6 +152,8 @@ export const getSourceProps = (
 export const Source: FC<PureSourceProps> = (props) => {
   const sourceContext = useContext(SourceContext);
   const docsContext = useContext(DocsContext);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error Let's fix this later when we work on blocks
   const sourceProps = getSourceProps(props, docsContext, sourceContext);
   return <PureSource {...sourceProps} />;
 };
