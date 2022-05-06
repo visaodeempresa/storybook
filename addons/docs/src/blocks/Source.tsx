@@ -19,7 +19,7 @@ export enum SourceState {
 }
 
 interface CommonProps {
-  language?: SourceCodeProps['language'];
+  language?: string;
   dark?: boolean;
   format?: SourceCodeProps['format'];
   code?: string;

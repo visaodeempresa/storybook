@@ -1,10 +1,9 @@
 import type { BuiltInParserName } from 'prettier';
-import type { Language } from 'prism-react-renderer';
 
 export type SyntaxHighlighterFormatTypes = boolean | 'dedent' | BuiltInParserName;
 
 export interface SyntaxHighlighterProps {
-  language: Language;
+  language: string;
   copyable?: boolean;
   bordered?: boolean;
   padded?: boolean;

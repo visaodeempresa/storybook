@@ -3,7 +3,7 @@ import React, { ClipboardEvent, FunctionComponent, MouseEvent, useCallback, useS
 import { logger } from '@storybook/client-logger';
 import { styled, ClassNames, useTheme } from '@storybook/theming';
 import global from 'global';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 // Use pre-defined themes for backward compatibility
 import lightTheme from 'prism-react-renderer/themes/vsLight';
 import darkTheme from 'prism-react-renderer/themes/vsDark';
@@ -157,7 +157,7 @@ export const SyntaxHighlighter: FunctionComponent<SyntaxHighlighterProps> = ({
             {...defaultProps}
             theme={prismTheme}
             code={highlightableCode}
-            language={language}
+            language={language as Language}
           >
             {({ className: cn, style, tokens, getLineProps, getTokenProps }) => (
               <ClassNames>
